@@ -1,0 +1,168 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: timescale/timescaledb:latest-pg15
+    container_name: crypto_postgres
+    environment:
+      POSTGRES_USER: crypto_user
+      POSTGRES_PASSWORD: crypto_password
+      POSTGRES_DB: crypto_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - crypto_network
+    restart: unless-stopped
+
+  # Redis Cache & Message Broker
+  redis:
+    image: redis:7-alpine
+    container_name: crypto_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - crypto_network
+    restart: unless-stopped
+
+  # MongoDB for Document Storage
+  mongodb:
+    image: mongo:7
+    container_name: crypto_mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: crypto_user
+      MONGO_INITDB_ROOT_PASSWORD: crypto_password
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - crypto_network
+    restart: unless-stopped
+
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: crypto_backend
+    environment:
+      - DATABASE_URL=postgresql://crypto_user:crypto_password@postgres:5432/crypto_db
+      - REDIS_URL=redis://redis:6379/0
+      - MONGODB_URL=mongodb://crypto_user:crypto_password@mongodb:27017/crypto_reports
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./data:/app/data
+    depends_on:
+      - postgres
+      - redis
+      - mongodb
+    networks:
+      - crypto_network
+    restart: unless-stopped
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+
+  # Celery Worker
+  celery_worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: crypto_celery_worker
+    environment:
+      - DATABASE_URL=postgresql://crypto_user:crypto_password@postgres:5432/crypto_db
+      - REDIS_URL=redis://redis:6379/0
+      - MONGODB_URL=mongodb://crypto_user:crypto_password@mongodb:27017/crypto_reports
+    env_file:
+      - .env
+    volumes:
+      - ./backend:/app
+      - ./data:/app/data
+    depends_on:
+      - postgres
+      - redis
+      - mongodb
+    networks:
+      - crypto_network
+    restart: unless-stopped
+    command: celery -A agents.orchestrator.celery_app worker --loglevel=info
+
+  # Celery Beat Scheduler
+  celery_beat:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: crypto_celery_beat
+    environment:
+      - DATABASE_URL=postgresql://crypto_user:crypto_password@postgres:5432/crypto_db
+      - REDIS_URL=redis://redis:6379/0
+      - MONGODB_URL=mongodb://crypto_user:crypto_password@mongodb:27017/crypto_reports
+    env_file:
+      - .env
+    volumes:
+      - ./backend:/app
+      - ./data:/app/data
+    depends_on:
+      - postgres
+      - redis
+      - mongodb
+    networks:
+      - crypto_network
+    restart: unless-stopped
+    command: celery -A agents.orchestrator.celery_app beat --loglevel=info
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: crypto_frontend
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+      - REACT_APP_WS_URL=ws://localhost:8000/ws
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - crypto_network
+    restart: unless-stopped
+
+  # Flower (Celery Monitoring)
+  flower:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: crypto_flower
+    environment:
+      - CELERY_BROKER_URL=redis://redis:6379/0
+      - CELERY_RESULT_BACKEND=redis://redis:6379/0
+    ports:
+      - "5555:5555"
+    depends_on:
+      - redis
+      - celery_worker
+    networks:
+      - crypto_network
+    restart: unless-stopped
+    command: celery -A agents.orchestrator.celery_app flower --port=5555
+
+networks:
+  crypto_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  redis_data:
+  mongodb_data:

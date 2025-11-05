@@ -1,0 +1,15 @@
+nohup: ignoring input
+
+> crypto-research-dashboard@1.0.0 dev
+> vite
+
+[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+(node:15640) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/zibnoukh/crypto-craper/frontend/postcss.config.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /home/zibnoukh/crypto-craper/frontend/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+  VITE v5.4.21  ready in 1799 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: use --host to expose

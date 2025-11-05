@@ -1,0 +1,127 @@
+nohup: ignoring input
+INFO:     Started server process [14295]
+INFO:     Waiting for application startup.
+2025-11-02 19:28:08.858 | INFO     | agents.phase_detector.detector:load_model:46 - Initializing new phase detection model
+2025-11-02 19:28:08.860 | INFO     | agents.data_collector.collector:collect_coingecko_data:48 - Collecting CoinGecko data for bitcoin
+2025-11-02 19:28:09.488 | WARNING  | agents.phase_detector.detector:detect_phase:246 - ML prediction failed, using rule-based: This RandomForestClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+2025-11-02 19:28:09.491 | INFO     | agents.data_collector.collector:collect_coingecko_data:48 - Collecting CoinGecko data for ethereum
+2025-11-02 19:29:11.092 | WARNING  | agents.phase_detector.detector:detect_phase:246 - ML prediction failed, using rule-based: This RandomForestClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+2025-11-02 19:29:11.094 | INFO     | agents.data_collector.collector:collect_coingecko_data:48 - Collecting CoinGecko data for solana
+2025-11-02 19:29:11.444 | WARNING  | agents.phase_detector.detector:detect_phase:246 - ML prediction failed, using rule-based: This RandomForestClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+2025-11-02 19:29:11.447 | INFO     | agents.data_collector.collector:collect_coingecko_data:48 - Collecting CoinGecko data for cardano
+2025-11-02 19:29:11.887 | WARNING  | agents.phase_detector.detector:detect_phase:246 - ML prediction failed, using rule-based: This RandomForestClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+2025-11-02 19:29:11.889 | INFO     | agents.data_collector.collector:collect_coingecko_data:48 - Collecting CoinGecko data for polkadot
+2025-11-02 19:29:12.292 | WARNING  | agents.phase_detector.detector:detect_phase:246 - ML prediction failed, using rule-based: This RandomForestClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+
+🌐 Starting server at http://0.0.0.0:8000
+📚 API Documentation: http://0.0.0.0:8000/docs
+🎯 Demo Mode - No database required!
+
+🚀 Starting Crypto Research AI Agent - Demo Mode
+============================================================
+📊 Loading demo data...
+  ✅ BTC    - Bitcoin         | Phase: unknown      | Score: 69.2
+  ✅ ETH    - Ethereum        | Phase: unknown      | Score: 67.5
+  ✅ SOL    - Solana          | Phase: unknown      | Score: 73.1
+  ✅ ADA    - Cardano         | Phase: unknown      | Score: 65.8
+  ✅ DOT    - Polkadot        | Phase: unknown      | Score: 74.3
+
+✅ Loaded 5 coins successfully!
+============================================================
+INFO:     127.0.0.1:43338 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35658 - "GET /api/coins HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37106 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37122 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37106 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54456 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54456 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54464 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59130 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59130 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59140 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56104 - "GET /docs?id=f2a627ef-05c6-403f-ad73-ba76e0bbb067&vscodeBrowserReqId=1762108568975 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56104 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56520 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56530 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56540 - "GET /api/coins HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56550 - "GET /api/coins HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56554 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56558 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56566 - "GET /api/coins HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56576 - "GET /api/coins HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58516 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49452 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49462 - "GET /api/coins HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56726 - "GET /api/coins HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57780 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57796 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57780 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57780 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57796 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57804 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42770 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42770 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42774 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56640 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56640 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56642 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38900 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49640 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52498 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52502 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52498 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52518 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56944 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56950 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34760 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34768 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34776 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45300 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45300 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45316 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35850 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35850 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35852 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35852 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35852 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35862 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49748 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49756 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56258 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59542 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59556 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59568 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45938 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45938 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45938 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45938 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45938 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56806 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58242 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43696 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56482 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56482 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48842 - "GET /api/coins HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46720 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45630 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45642 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54502 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54502 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54502 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40360 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43880 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35204 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35204 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35214 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52228 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52228 - "GET /api/stats/phase-distribution HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52228 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52222 - "GET /api/stats/overview HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [14295]

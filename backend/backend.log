@@ -1,0 +1,35 @@
+nohup: ignoring input
+INFO:     Started server process [20764]
+INFO:     Waiting for application startup.
+2025-11-02 20:21:23.034 | INFO     | agents.phase_detector.detector:load_model:46 - Initializing new phase detection model
+2025-11-02 20:21:23.035 | INFO     | agents.data_collector.collector:collect_coingecko_data:48 - Collecting CoinGecko data for bitcoin
+2025-11-02 20:21:23.675 | WARNING  | agents.phase_detector.detector:detect_phase:246 - ML prediction failed, using rule-based: This RandomForestClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+2025-11-02 20:21:23.677 | INFO     | agents.data_collector.collector:collect_coingecko_data:48 - Collecting CoinGecko data for ethereum
+2025-11-02 20:21:24.001 | WARNING  | agents.phase_detector.detector:detect_phase:246 - ML prediction failed, using rule-based: This RandomForestClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+2025-11-02 20:21:24.002 | INFO     | agents.data_collector.collector:collect_coingecko_data:48 - Collecting CoinGecko data for solana
+2025-11-02 20:22:24.442 | WARNING  | agents.phase_detector.detector:detect_phase:246 - ML prediction failed, using rule-based: This RandomForestClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+2025-11-02 20:22:24.444 | INFO     | agents.data_collector.collector:collect_coingecko_data:48 - Collecting CoinGecko data for cardano
+2025-11-02 20:22:24.983 | WARNING  | agents.phase_detector.detector:detect_phase:246 - ML prediction failed, using rule-based: This RandomForestClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+2025-11-02 20:22:24.984 | INFO     | agents.data_collector.collector:collect_coingecko_data:48 - Collecting CoinGecko data for polkadot
+2025-11-02 20:22:25.418 | WARNING  | agents.phase_detector.detector:detect_phase:246 - ML prediction failed, using rule-based: This RandomForestClassifier instance is not fitted yet. Call 'fit' with appropriate arguments before using this estimator.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+
+🌐 Starting server at http://0.0.0.0:8000
+📚 API Documentation: http://0.0.0.0:8000/docs
+🎯 Demo Mode - No database required!
+
+🚀 Starting Crypto Research AI Agent - Demo Mode
+============================================================
+📊 Loading demo data...
+  ✅ BTC    - Bitcoin         | Phase: unknown      | Score: 66.8
+  ✅ ETH    - Ethereum        | Phase: unknown      | Score: 71.8
+  ✅ SOL    - Solana          | Phase: unknown      | Score: 64.9
+  ✅ ADA    - Cardano         | Phase: unknown      | Score: 68.8
+  ✅ DOT    - Polkadot        | Phase: unknown      | Score: 68.3
+
+✅ Loaded 5 coins successfully!
+============================================================
+INFO:     127.0.0.1:53446 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36972 - "GET /api/coins?limit=100 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36988 - "GET /api/stats/overview HTTP/1.1" 200 OK
