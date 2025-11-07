@@ -13,11 +13,8 @@ export default function PhaseDistributionChart() {
 
   if (!distribution) return null
 
-  // Convert object to array format
-  const distributionArray = Object.entries(distribution).map(([phase, count]) => ({
-    phase,
-    count: count as number,
-  }))
+  // distribution is already an array from the API
+  const distributionArray = Array.isArray(distribution) ? distribution : []
 
   const chartData = {
     labels: distributionArray.map((d) => d.phase.toUpperCase()),
